@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#030914">
+
+    <title>
+        Weather Monitoring | Workflow
+    </title>
+
+    <!-- ONLY WORKFLOW CSS -->
+    <link rel="stylesheet" href="workflow.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         BACKGROUND
+         ===================================================== -->
+
+    <div class="background-grid"></div>
+
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+
+
+    <!-- =====================================================
+         TOP BAR
+         ===================================================== -->
+
+    <header class="workflow-topbar">
+
+        <a href="index.html" class="workflow-brand">
+
+            <div class="brand-symbol">
+                ⌁
+            </div>
+
+            <div>
+
+                <strong>
+                    WEATHER//MONITOR
+                </strong>
+
+                <span>
+                    IoT PARAMETER SYSTEM
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <div class="top-status">
+
+            <span class="status-dot"></span>
+
+            SYSTEM ONLINE
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="workflow-container">
+
+
+        <!-- HERO -->
+
+        <section class="workflow-hero">
+
+            <div class="eyebrow">
+                <span></span>
+                SYSTEM ARCHITECTURE
+            </div>
+
+            <h1>
+                How the system
+                <em>works.</em>
+            </h1>
+
+            <p>
+                The complete technical flow of the Weather
+                Parameter Monitoring System — from environmental
+                sensing to real-time web visualisation.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MAIN FLOW
+             ================================================= -->
+
+        <section class="flow-section">
+
+            <div class="section-heading">
+
+                <span>
+                    END-TO-END DATA PIPELINE
+                </span>
+
+                <h2>
+                    SENSOR → PROCESS → TRANSMIT → VISUALISE
+                </h2>
+
+            </div>
+
+
+
+            <div class="flow-container">
+
+
+                <!-- SENSOR -->
+
+                <article class="flow-card" data-step="01">
+
+                    <div class="step-number">
+                        01
+                    </div>
+
+                    <div class="flow-icon">
+                        ◉
+                    </div>
+
+                    <span class="flow-label">
+                        INPUT
+                    </span>
+
+                    <h3>
+                        Environmental Sensors
+                    </h3>
+
+                    <p>
+                        Sensors collect environmental
+                        parameters from the surrounding
+                        atmosphere.
+                    </p>
+
+
+                    <div class="sensor-list">
+
+                        <div>
+                            <b>BME280</b>
+                            <span>
+                                Temperature
+                            </span>
+                        </div>
+
+                        <div>
+                            <b>BME280</b>
+                            <span>
+                                Humidity
+                            </span>
+                        </div>
+
+                        <div>
+                            <b>BME280</b>
+                            <span>
+                                Pressure
+                            </span>
+                        </div>
+
+                        <div>
+                            <b>RAIN SENSOR</b>
+                            <span>
+                                Rain Level
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="flow-tag">
+                        I²C + ADC
+                    </div>
+
+
+                    <div class="connector right">
+                        <span>DATA</span>
+                        →
+                    </div>
+
+                </article>
+
+
+
+                <!-- PICO -->
+
+                <article class="flow-card active-card" data-step="02">
+
+                    <div class="step-number">
+                        02
+                    </div>
+
+                    <div class="flow-icon pico-icon">
+                        ◈
+                    </div>
+
+                    <span class="flow-label">
+                        PROCESS
+                    </span>
+
+                    <h3>
+                        Raspberry Pi Pico W
+                    </h3>
+
+                    <p>
+                        The central controller reads the
+                        sensors, processes the values and
+                        prepares the telemetry packet.
+                    </p>
+
+
+                    <div class="process-list">
+
+                        <div>
+                            <i>01</i>
+                            Read sensor values
+                        </div>
+
+                        <div>
+                            <i>02</i>
+                            Process measurements
+                        </div>
+
+                        <div>
+                            <i>03</i>
+                            Create JSON packet
+                        </div>
+
+                        <div>
+                            <i>04</i>
+                            Connect to Wi-Fi
+                        </div>
+
+                    </div>
+
+
+                    <div class="flow-tag">
+                        MICROCONTROLLER
+                    </div>
+
+
+                    <div class="connector right">
+                        <span>HTTP POST</span>
+                        →
+                    </div>
+
+                </article>
+
+
+
+                <!-- BACKEND -->
+
+                <article class="flow-card" data-step="03">
+
+                    <div class="step-number">
+                        03
+                    </div>
+
+                    <div class="flow-icon">
+                        ⇄
+                    </div>
+
+                    <span class="flow-label">
+                        TRANSMIT
+                    </span>
+
+                    <h3>
+                        Express.js Backend
+                    </h3>
+
+                    <p>
+                        The Node.js server receives the
+                        telemetry and makes the latest
+                        measurements available through APIs.
+                    </p>
+
+
+                    <div class="api-box">
+
+                        <div>
+                            <strong>POST</strong>
+                            <span>/api/weather</span>
+                        </div>
+
+                        <div>
+                            <strong>GET</strong>
+                            <span>/api/weather</span>
+                        </div>
+
+                        <div>
+                            <strong>GET</strong>
+                            <span>/api/status</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="flow-tag">
+                        REST API
+                    </div>
+
+
+                    <div class="connector right">
+                        <span>HTTP GET</span>
+                        →
+                    </div>
+
+                </article>
+
+
+
+                <!-- DASHBOARD -->
+
+                <article class="flow-card" data-step="04">
+
+                    <div class="step-number">
+                        04
+                    </div>
+
+                    <div class="flow-icon">
+                        ◒
+                    </div>
+
+                    <span class="flow-label">
+                        OUTPUT
+                    </span>
+
+                    <h3>
+                        Web Dashboard
+                    </h3>
+
+                    <p>
+                        The browser retrieves the latest
+                        measurements and presents them to
+                        the user in real time.
+                    </p>
+
+
+                    <div class="dashboard-preview">
+
+                        <div>
+                            <span>
+                                TEMP
+                            </span>
+
+                            <b>
+                                30.42°C
+                            </b>
+                        </div>
+
+                        <div>
+                            <span>
+                                HUMIDITY
+                            </span>
+
+                            <b>
+                                58.82%
+                            </b>
+                        </div>
+
+                        <div>
+                            <span>
+                                PRESSURE
+                            </span>
+
+                            <b>
+                                1011 hPa
+                            </b>
+                        </div>
+
+                        <div>
+                            <span>
+                                RAIN
+                            </span>
+
+                            <b>
+                                75.02%
+                            </b>
+                        </div>
+
+                    </div>
+
+
+                    <div class="flow-tag">
+                        LIVE MONITORING
+                    </div>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 DATA PATH
+                 ================================================= -->
+
+            <div class="data-path">
+
+                <div class="path-line"></div>
+
+                <span>
+                    LIVE DATA PATH
+                </span>
+
+                <strong>
+                    SENSOR
+                </strong>
+
+                <b>→</b>
+
+                <strong>
+                    PICO W
+                </strong>
+
+                <b>→</b>
+
+                <strong>
+                    WI-FI
+                </strong>
+
+                <b>→</b>
+
+                <strong>
+                    EXPRESS.JS
+                </strong>
+
+                <b>→</b>
+
+                <strong>
+                    DASHBOARD
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TECHNICAL EXPLANATION
+             ================================================= -->
+
+        <section class="technical-section">
+
+            <div class="section-heading">
+
+                <span>
+                    TECHNICAL OPERATION
+                </span>
+
+                <h2>
+                    Four stages of the system
+                </h2>
+
+            </div>
+
+
+            <div class="technical-grid">
+
+
+                <article class="technical-card">
+
+                    <span>
+                        01 / SENSE
+                    </span>
+
+                    <h3>
+                        Environmental Sensing
+                    </h3>
+
+                    <p>
+                        The BME280 measures temperature,
+                        humidity and atmospheric pressure.
+                        The rain sensor provides an analog
+                        rain/wetness reading.
+                    </p>
+
+                </article>
+
+
+
+                <article class="technical-card">
+
+                    <span>
+                        02 / PROCESS
+                    </span>
+
+                    <h3>
+                        Local Processing
+                    </h3>
+
+                    <p>
+                        The Raspberry Pi Pico W reads the
+                        sensor signals and converts the
+                        measurements into usable values.
+                    </p>
+
+                </article>
+
+
+
+                <article class="technical-card">
+
+                    <span>
+                        03 / COMMUNICATE
+                    </span>
+
+                    <h3>
+                        Wireless Telemetry
+                    </h3>
+
+                    <p>
+                        The Pico W connects to Wi-Fi and
+                        sends the sensor measurements to
+                        the Express.js server using HTTP POST.
+                    </p>
+
+                </article>
+
+
+
+                <article class="technical-card">
+
+                    <span>
+                        04 / VISUALISE
+                    </span>
+
+                    <h3>
+                        Real-Time Dashboard
+                    </h3>
+
+                    <p>
+                        JavaScript retrieves the latest
+                        values from the API and displays
+                        them through the monitoring interface.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DATA FORMAT
+             ================================================= -->
+
+        <section class="json-section">
+
+            <div class="json-card">
+
+                <div class="json-header">
+
+                    <div>
+                        <span>
+                            TELEMETRY FORMAT
+                        </span>
+
+                        <h3>
+                            JSON Data Packet
+                        </h3>
+                    </div>
+
+                    <b>
+                        HTTP POST
+                    </b>
+
+                </div>
+
+
+                <pre>{
+  "temperature": 30.42,
+  "humidity": 58.82,
+  "pressure": 1011.32,
+  "rainLevel": 75.02
+}</pre>
+
+            </div>
+
+
+            <div class="json-card">
+
+                <div class="json-header">
+
+                    <div>
+                        <span>
+                            SYSTEM RESPONSE
+                        </span>
+
+                        <h3>
+                            Dashboard Request
+                        </h3>
+                    </div>
+
+                    <b>
+                        HTTP GET
+                    </b>
+
+                </div>
+
+
+                <div class="response-flow">
+
+                    <span>
+                        PICO W
+                    </span>
+
+                    <b>→</b>
+
+                    <span>
+                        API
+                    </span>
+
+                    <b>→</b>
+
+                    <span>
+                        BROWSER
+                    </span>
+
+                </div>
+
+                <p>
+                    The dashboard periodically requests the
+                    latest weather data from the backend.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FUTURE
+             ================================================= -->
+
+        <section class="future-section">
+
+            <div class="future-header">
+
+                <span>
+                    FUTURE EXPANSION
+                </span>
+
+                <h2>
+                    Scalable sensor architecture
+                </h2>
+
+            </div>
+
+
+            <div class="future-grid">
+
+                <div>
+                    <strong>〽</strong>
+                    <span>Wind Speed</span>
+                    <small>Anemometer</small>
+                </div>
+
+                <div>
+                    <strong>☼</strong>
+                    <span>Light Intensity</span>
+                    <small>LDR / BH1750</small>
+                </div>
+
+                <div>
+                    <strong>◌</strong>
+                    <span>Air Quality</span>
+                    <small>Gas / PM Sensor</small>
+                </div>
+
+                <div>
+                    <strong>☀</strong>
+                    <span>UV Index</span>
+                    <small>UV Sensor</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- FOOTER -->
+
+        <footer class="workflow-footer">
+
+            <span>
+                WEATHER PARAMETER MONITORING SYSTEM
+            </span>
+
+            <span>
+                SENSOR → PICO W → API → DASHBOARD
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- ONLY WORKFLOW JS -->
+
+    <script src="workflow.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta name="theme-color" content="#030914">
+
+    <title>
+        Weather Monitoring | Analytics
+    </title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body data-page="analytics">
+
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+
+
+    <header class="topbar">
+
+        <a class="brand" href="index.html">
+
+            <span class="brand-mark">
+                ⌁
+            </span>
+
+            <span>
+
+                <strong>
+                    WEATHER//MONITOR
+                </strong>
+
+                <small>
+                    IoT PARAMETER SYSTEM
+                </small>
+
+            </span>
+
+        </a>
+
+
+        <div class="top-actions">
+
+            <span class="connection-pill" id="connectionPill">
+
+                <i></i>
+
+                <span id="connectionText">
+                    LIVE ANALYTICS
+                </span>
+
+            </span>
+
+
+            <button class="menu-btn" id="menuBtn">
+
+                ☰
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <div class="mobile-overlay" id="mobileOverlay">
+    </div>
+
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="side-label">
+            CONTROL CENTER
+        </div>
+
+
+        <nav>
+
+            <a class="nav-item" href="index.html">
+
+                <span>⌂</span>
+                Dashboard
+
+            </a>
+
+
+            <a class="nav-item" href="workflow.html">
+
+                <span>◈</span>
+                Workflow
+
+            </a>
+
+
+            <a class="nav-item" href="hardware.html">
+
+                <span>⌬</span>
+                Hardware
+
+            </a>
+
+
+            <a class="nav-item active" href="analytics.html">
+
+                <span>◒</span>
+                Analytics
+
+            </a>
+
+        </nav>
+
+
+        <div class="side-system">
+
+            <span class="live-orb"></span>
+
+            <div>
+
+                <b>
+                    STREAMING
+                </b>
+
+                <small>
+                    Browser telemetry buffer
+                </small>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <main class="page">
+
+
+        <section class="page-title">
+
+            <div class="eyebrow">
+
+                <span></span>
+
+                LIVE TELEMETRY ANALYTICS
+
+            </div>
+
+
+            <h1>
+
+                Read the<br>
+                <em>signal.</em>
+
+            </h1>
+
+
+            <p>
+
+                Live browser-session graphs built
+                directly from the Weather API.
+
+            </p>
+
+        </section>
+
+
+        <!-- STATS -->
+        <section class="analytics-stats">
+
+
+            <div class="stat-panel">
+
+                <span>
+                    TEMPERATURE
+                </span>
+
+                <strong id="aTemp">
+                    -- °C
+                </strong>
+
+                <small>
+                    Current reading
+                </small>
+
+            </div>
+
+
+            <div class="stat-panel">
+
+                <span>
+                    HUMIDITY
+                </span>
+
+                <strong id="aHumidity">
+                    -- %
+                </strong>
+
+                <small>
+                    Current reading
+                </small>
+
+            </div>
+
+
+            <div class="stat-panel">
+
+                <span>
+                    PRESSURE
+                </span>
+
+                <strong id="aPressure">
+                    -- hPa
+                </strong>
+
+                <small>
+                    Current reading
+                </small>
+
+            </div>
+
+
+            <div class="stat-panel">
+
+                <span>
+                    RAIN LEVEL
+                </span>
+
+                <strong id="aRain">
+                    -- %
+                </strong>
+
+                <small>
+                    Relative sensor value
+                </small>
+
+            </div>
+
+        </section>
+
+
+        <!-- CHARTS -->
+        <section class="charts-grid">
+
+
+            <article class="chart-panel">
+
+                <div class="chart-head">
+
+                    <div>
+
+                        <span>
+                            01 / TEMPERATURE
+                        </span>
+
+                        <h3>
+                            Thermal signal
+                        </h3>
+
+                    </div>
+
+                    <b>
+                        °C
+                    </b>
+
+                </div>
+
+
+                <div class="bar-chart" id="temperatureChart">
+                </div>
+
+
+                <div class="chart-axis">
+
+                    <span>
+                        OLDER
+                    </span>
+
+                    <span>
+                        RECENT
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="chart-panel">
+
+                <div class="chart-head">
+
+                    <div>
+
+                        <span>
+                            02 / HUMIDITY
+                        </span>
+
+                        <h3>
+                            Moisture signal
+                        </h3>
+
+                    </div>
+
+                    <b>
+                        %
+                    </b>
+
+                </div>
+
+
+                <div class="bar-chart" id="humidityChart">
+                </div>
+
+
+                <div class="chart-axis">
+
+                    <span>
+                        OLDER
+                    </span>
+
+                    <span>
+                        RECENT
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="chart-panel">
+
+                <div class="chart-head">
+
+                    <div>
+
+                        <span>
+                            03 / PRESSURE
+                        </span>
+
+                        <h3>
+                            Atmospheric signal
+                        </h3>
+
+                    </div>
+
+                    <b>
+                        hPa
+                    </b>
+
+                </div>
+
+
+                <div class="bar-chart" id="pressureChart">
+                </div>
+
+
+                <div class="chart-axis">
+
+                    <span>
+                        OLDER
+                    </span>
+
+                    <span>
+                        RECENT
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="chart-panel">
+
+                <div class="chart-head">
+
+                    <div>
+
+                        <span>
+                            04 / RAIN
+                        </span>
+
+                        <h3>
+                            Rain sensor signal
+                        </h3>
+
+                    </div>
+
+                    <b>
+                        %
+                    </b>
+
+                </div>
+
+
+                <div class="bar-chart" id="rainChart">
+                </div>
+
+
+                <div class="chart-axis">
+
+                    <span>
+                        OLDER
+                    </span>
+
+                    <span>
+                        RECENT
+                    </span>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ANALYTICS NOTE -->
+        <section class="panel analytics-note">
+
+            <div>
+
+                <span class="panel-kicker">
+                    ANALYTICS NOTE
+                </span>
+
+                <h3>
+                    How the graph works
+                </h3>
+
+            </div>
+
+
+            <p>
+
+                The dashboard keeps the latest
+                12 readings in browser memory.
+                The values update whenever the API
+                returns a new packet. Reloading the
+                page resets this temporary chart history.
+
+            </p>
+
+        </section>
+
+
+        <footer class="footer">
+
+            <span>
+                ANALYTICS / LIVE SESSION BUFFER
+            </span>
+
+            <span>
+                API: /api/weather
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

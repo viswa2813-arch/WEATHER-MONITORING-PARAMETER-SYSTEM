@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#030914">
+
+    <title>Weather Monitoring | Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-page="dashboard">
+
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+
+        <a class="brand" href="index.html">
+
+            <span class="brand-mark">⌁</span>
+
+            <span>
+                <strong>WEATHER//MONITOR</strong>
+                <small>IoT PARAMETER SYSTEM</small>
+            </span>
+
+        </a>
+
+        <div class="top-actions">
+
+            <span class="connection-pill" id="connectionPill">
+                <i></i>
+                <span id="connectionText">CONNECTING</span>
+            </span>
+
+            <button class="menu-btn" id="menuBtn" aria-label="Open navigation">
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- MOBILE OVERLAY -->
+    <div class="mobile-overlay" id="mobileOverlay">
+    </div>
+
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="side-label">
+            CONTROL CENTER
+        </div>
+
+        <nav>
+
+            <a class="nav-item active" href="index.html">
+
+                <span>⌂</span>
+                Dashboard
+
+            </a>
+
+            <a class="nav-item" href="workflow.html">
+
+                <span>◈</span>
+                Workflow
+
+            </a>
+
+            <a class="nav-item" href="hardware.html">
+
+                <span>⌬</span>
+                Hardware
+
+            </a>
+
+            <a class="nav-item" href="analytics.html">
+
+                <span>◒</span>
+                Analytics
+
+            </a>
+
+        </nav>
+
+
+        <div class="side-system">
+
+            <span class="live-orb"></span>
+
+            <div>
+
+                <b>SYSTEM ONLINE</b>
+
+                <small>
+                    Raspberry Pi Pico W
+                </small>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="page">
+
+        <!-- HERO -->
+        <section class="hero dashboard-hero">
+
+            <div>
+
+                <div class="eyebrow">
+                    <span></span>
+                    LIVE ENVIRONMENTAL TELEMETRY
+                </div>
+
+                <h1>
+                    Weather data,<br>
+                    <em>in real time.</em>
+                </h1>
+
+                <p>
+                    A connected monitoring interface for temperature,
+                    humidity, atmospheric pressure and rain-level telemetry.
+                </p>
+
+            </div>
+
+
+            <div class="hero-readout">
+
+                <small>
+                    LAST PACKET
+                </small>
+
+                <strong id="lastUpdated">
+                    Waiting...
+                </strong>
+
+                <span>
+                    HTTP / API TELEMETRY
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- COMMAND STRIP -->
+        <section class="command-strip">
+
+            <div>
+                <span class="signal-dot"></span>
+                <b>LIVE STREAM</b>
+                <span>Auto refresh: 2 sec</span>
+            </div>
+
+            <div>
+                <span>DEVICE</span>
+                <strong>PICO W</strong>
+            </div>
+
+            <div>
+                <span>BACKEND</span>
+                <strong>EXPRESS.JS</strong>
+            </div>
+
+            <div>
+                <span>PROTOCOL</span>
+                <strong>HTTP POST</strong>
+            </div>
+
+        </section>
+
+
+        <!-- METRICS -->
+        <section class="metrics-grid">
+
+            <!-- TEMPERATURE -->
+            <article class="metric-card metric-temperature">
+
+                <div class="metric-head">
+
+                    <span class="metric-icon">
+                        °
+                    </span>
+
+                    <div>
+                        <span>
+                            01 / TEMPERATURE
+                        </span>
+
+                        <small>
+                            BME280
+                        </small>
+                    </div>
+
+                    <b class="metric-status">
+                        LIVE
+                    </b>
+
+                </div>
+
+
+                <div class="metric-value">
+
+                    <strong id="temperature">
+                        --
+                    </strong>
+
+                    <span>
+                        °C
+                    </span>
+
+                </div>
+
+
+                <div class="metric-line">
+                    <i></i>
+                </div>
+
+
+                <p>
+                    Ambient temperature measured by
+                    the BME280 sensor.
+                </p>
+
+            </article>
+
+
+            <!-- HUMIDITY -->
+            <article class="metric-card metric-humidity">
+
+                <div class="metric-head">
+
+                    <span class="metric-icon">
+                        ≈
+                    </span>
+
+                    <div>
+
+                        <span>
+                            02 / HUMIDITY
+                        </span>
+
+                        <small>
+                            BME280
+                        </small>
+
+                    </div>
+
+                    <b class="metric-status">
+                        LIVE
+                    </b>
+
+                </div>
+
+
+                <div class="metric-value">
+
+                    <strong id="humidity">
+                        --
+                    </strong>
+
+                    <span>
+                        %
+                    </span>
+
+                </div>
+
+
+                <div class="metric-line">
+                    <i></i>
+                </div>
+
+
+                <p>
+                    Relative humidity measured from
+                    the surrounding air.
+                </p>
+
+            </article>
+
+
+            <!-- PRESSURE -->
+            <article class="metric-card metric-pressure">
+
+                <div class="metric-head">
+
+                    <span class="metric-icon">
+                        ◉
+                    </span>
+
+                    <div>
+
+                        <span>
+                            03 / PRESSURE
+                        </span>
+
+                        <small>
+                            BME280
+                        </small>
+
+                    </div>
+
+                    <b class="metric-status">
+                        LIVE
+                    </b>
+
+                </div>
+
+
+                <div class="metric-value">
+
+                    <strong id="pressure">
+                        --
+                    </strong>
+
+                    <span>
+                        hPa
+                    </span>
+
+                </div>
+
+
+                <div class="metric-line">
+                    <i></i>
+                </div>
+
+
+                <p>
+                    Atmospheric pressure measured
+                    at the sensor.
+                </p>
+
+            </article>
+
+
+            <!-- RAIN -->
+            <article class="metric-card metric-rain">
+
+                <div class="metric-head">
+
+                    <span class="metric-icon">
+                        ⌁
+                    </span>
+
+                    <div>
+
+                        <span>
+                            04 / RAIN LEVEL
+                        </span>
+
+                        <small>
+                            RAIN SENSOR
+                        </small>
+
+                    </div>
+
+                    <b class="metric-status">
+                        LIVE
+                    </b>
+
+                </div>
+
+
+                <div class="metric-value">
+
+                    <strong id="rainLevel">
+                        --
+                    </strong>
+
+                    <span>
+                        %
+                    </span>
+
+                </div>
+
+
+                <div class="metric-line">
+                    <i></i>
+                </div>
+
+
+                <p>
+                    Relative rain-sensor level derived
+                    from the analog reading.
+                </p>
+
+            </article>
+
+
+            <!-- WIND -->
+            <article class="metric-card unavailable">
+
+                <div class="metric-head">
+
+                    <span class="metric-icon">
+                        〽
+                    </span>
+
+                    <div>
+
+                        <span>
+                            05 / WIND SPEED
+                        </span>
+
+                        <small>
+                            NOT INSTALLED
+                        </small>
+
+                    </div>
+
+                    <b class="metric-status muted">
+                        N/A
+                    </b>
+
+                </div>
+
+
+                <div class="metric-value">
+
+                    <strong>
+                        --
+                    </strong>
+
+                    <span>
+                        m/s
+                    </span>
+
+                </div>
+
+
+                <p>
+                    Wind sensor hardware is not
+                    currently installed.
+                </p>
+
+            </article>
+
+
+            <!-- LIGHT -->
+            <article class="metric-card unavailable">
+
+                <div class="metric-head">
+
+                    <span class="metric-icon">
+                        ☼
+                    </span>
+
+                    <div>
+
+                        <span>
+                            06 / LIGHT
+                        </span>
+
+                        <small>
+                            NOT INSTALLED
+                        </small>
+
+                    </div>
+
+                    <b class="metric-status muted">
+                        N/A
+                    </b>
+
+                </div>
+
+
+                <div class="metric-value">
+
+                    <strong>
+                        --
+                    </strong>
+
+                    <span>
+                        %
+                    </span>
+
+                </div>
+
+
+                <p>
+                    Light sensor hardware is not
+                    currently installed.
+                </p>
+
+            </article>
+
+        </section>
+
+
+        <!-- SECTION TITLE -->
+        <section class="section-heading">
+
+            <div>
+
+                <span>
+                    TELEMETRY SNAPSHOT
+                </span>
+
+                <h2>
+                    System intelligence
+                </h2>
+
+            </div>
+
+
+            <a class="ghost-btn" href="analytics.html">
+
+                OPEN ANALYTICS →
+
+            </a>
+
+        </section>
+
+
+        <!-- LOWER GRID -->
+        <section class="lower-grid">
+
+
+            <!-- SYSTEM -->
+            <article class="panel system-panel">
+
+                <div class="panel-top">
+
+                    <div>
+
+                        <span class="panel-kicker">
+                            DEVICE HEALTH
+                        </span>
+
+                        <h3>
+                            Monitoring node
+                        </h3>
+
+                    </div>
+
+                    <span class="health-badge">
+
+                        <i></i>
+                        OPERATIONAL
+
+                    </span>
+
+                </div>
+
+
+                <div class="health-grid">
+
+                    <div>
+
+                        <span>
+                            CONTROLLER
+                        </span>
+
+                        <strong>
+                            Raspberry Pi Pico W
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            SENSOR BUS
+                        </span>
+
+                        <strong>
+                            I²C / ADC
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            DATA LINK
+                        </span>
+
+                        <strong>
+                            Wi-Fi
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            SERVER
+                        </span>
+
+                        <strong>
+                            Express.js : 3000
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="system-bar">
+
+                    <span>
+                        DATA PIPELINE
+                    </span>
+
+                    <b>
+                        Sensor → Pico W → Wi-Fi → API → Dashboard
+                    </b>
+
+                </div>
+
+            </article>
+
+
+            <!-- MINI CHART -->
+            <article class="panel mini-chart-panel">
+
+                <div class="panel-top">
+
+                    <div>
+
+                        <span class="panel-kicker">
+                            LIVE BUFFER
+                        </span>
+
+                        <h3>
+                            Temperature trend
+                        </h3>
+
+                    </div>
+
+                    <span id="chartCurrent">
+                        -- °C
+                    </span>
+
+                </div>
+
+
+                <div class="spark-chart" id="miniTemperatureChart">
+                </div>
+
+
+                <div class="chart-foot">
+
+                    <span>
+                        Recent browser-session readings
+                    </span>
+
+                    <span>
+                        12 points
+                    </span>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <footer class="footer">
+
+            <span>
+                WEATHER PARAMETER MONITORING SYSTEM
+            </span>
+
+            <span>
+                ENGINEERED FOR REAL-TIME IoT OBSERVATION
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

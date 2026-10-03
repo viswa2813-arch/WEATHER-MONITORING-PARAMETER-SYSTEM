@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta name="theme-color" content="#030914">
+
+    <title>
+        Weather Monitoring | Hardware
+    </title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body data-page="hardware">
+
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+
+
+    <header class="topbar">
+
+        <a class="brand" href="index.html">
+
+            <span class="brand-mark">
+                ⌁
+            </span>
+
+            <span>
+
+                <strong>
+                    WEATHER//MONITOR
+                </strong>
+
+                <small>
+                    IoT PARAMETER SYSTEM
+                </small>
+
+            </span>
+
+        </a>
+
+
+        <div class="top-actions">
+
+            <span class="connection-pill">
+
+                <i></i>
+
+                <span>
+                    HARDWARE
+                </span>
+
+            </span>
+
+
+            <button class="menu-btn" id="menuBtn">
+
+                ☰
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <div class="mobile-overlay" id="mobileOverlay">
+    </div>
+
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="side-label">
+            CONTROL CENTER
+        </div>
+
+
+        <nav>
+
+            <a class="nav-item" href="index.html">
+
+                <span>⌂</span>
+                Dashboard
+
+            </a>
+
+
+            <a class="nav-item" href="workflow.html">
+
+                <span>◈</span>
+                Workflow
+
+            </a>
+
+
+            <a class="nav-item active" href="hardware.html">
+
+                <span>⌬</span>
+                Hardware
+
+            </a>
+
+
+            <a class="nav-item" href="analytics.html">
+
+                <span>◒</span>
+                Analytics
+
+            </a>
+
+        </nav>
+
+
+        <div class="side-system">
+
+            <span class="live-orb"></span>
+
+            <div>
+
+                <b>
+                    EDGE NODE
+                </b>
+
+                <small>
+                    Raspberry Pi Pico W
+                </small>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <main class="page">
+
+
+        <section class="page-title">
+
+            <div class="eyebrow">
+
+                <span></span>
+
+                HARDWARE / FIELD NODE
+
+            </div>
+
+
+            <h1>
+
+                The physical<br>
+                <em>machine.</em>
+
+            </h1>
+
+
+            <p>
+                Core electronics currently used
+                in the monitoring prototype.
+            </p>
+
+        </section>
+
+
+        <!-- HARDWARE HERO -->
+        <section class="hardware-hero">
+
+
+            <div class="hardware-core">
+
+                <div class="core-ring ring-one"></div>
+
+                <div class="core-ring ring-two"></div>
+
+
+                <div class="core-chip">
+
+                    <span>
+                        RP2040
+                    </span>
+
+                    <strong>
+                        PICO W
+                    </strong>
+
+                    <small>
+                        Wi-Fi MCU
+                    </small>
+
+                </div>
+
+
+                <div class="pin pin-a">
+                    GP4 / SDA
+                </div>
+
+                <div class="pin pin-b">
+                    GP5 / SCL
+                </div>
+
+                <div class="pin pin-c">
+                    GP26 / ADC0
+                </div>
+
+            </div>
+
+
+            <div class="hardware-copy">
+
+                <span class="panel-kicker">
+                    MAIN CONTROLLER
+                </span>
+
+
+                <h2>
+
+                    Raspberry Pi<br>
+                    <em>Pico W</em>
+
+                </h2>
+
+
+                <p>
+
+                    The edge controller reads the
+                    environmental sensors, processes the
+                    values and sends telemetry over Wi-Fi
+                    to the backend server.
+
+                </p>
+
+
+                <div class="spec-row">
+
+
+                    <div>
+
+                        <span>
+                            CPU
+                        </span>
+
+                        <b>
+                            RP2040
+                        </b>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            WIRELESS
+                        </span>
+
+                        <b>
+                            2.4 GHz Wi-Fi
+                        </b>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            LOGIC
+                        </span>
+
+                        <b>
+                            3.3 V
+                        </b>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section-heading">
+
+            <div>
+
+                <span>
+                    COMPONENT STACK
+                </span>
+
+                <h2>
+                    What is connected?
+                </h2>
+
+            </div>
+
+        </section>
+
+
+        <!-- COMPONENTS -->
+        <section class="component-grid">
+
+
+            <article class="component-card">
+
+                <div class="component-icon blue">
+                    B
+                </div>
+
+                <div>
+
+                    <span>
+                        01 / SENSOR
+                    </span>
+
+                    <h3>
+                        BME280
+                    </h3>
+
+                    <p>
+                        Temperature, humidity and
+                        atmospheric pressure via I²C.
+                    </p>
+
+                </div>
+
+                <b class="component-chip">
+                    I²C
+                </b>
+
+            </article>
+
+
+            <article class="component-card">
+
+                <div class="component-icon rain">
+                    ≈
+                </div>
+
+                <div>
+
+                    <span>
+                        02 / SENSOR
+                    </span>
+
+                    <h3>
+                        Rain Sensor
+                    </h3>
+
+                    <p>
+                        Analog rain-level signal read
+                        through the Pico W ADC.
+                    </p>
+
+                </div>
+
+                <b class="component-chip">
+                    ADC0
+                </b>
+
+            </article>
+
+
+            <article class="component-card">
+
+                <div class="component-icon power">
+                    ⚡
+                </div>
+
+                <div>
+
+                    <span>
+                        03 / POWER
+                    </span>
+
+                    <h3>
+                        3.3 V Supply
+                    </h3>
+
+                    <p>
+                        Pico W and sensor modules operate
+                        at the required logic level.
+                    </p>
+
+                </div>
+
+                <b class="component-chip">
+                    3V3
+                </b>
+
+            </article>
+
+
+            <article class="component-card unavailable">
+
+                <div class="component-icon">
+                    ×
+                </div>
+
+                <div>
+
+                    <span>
+                        04 / OPTIONAL
+                    </span>
+
+                    <h3>
+                        Wind Sensor
+                    </h3>
+
+                    <p>
+                        Not installed in the
+                        current prototype.
+                    </p>
+
+                </div>
+
+                <b class="component-chip">
+                    N/A
+                </b>
+
+            </article>
+
+
+            <article class="component-card unavailable">
+
+                <div class="component-icon">
+                    ×
+                </div>
+
+                <div>
+
+                    <span>
+                        05 / OPTIONAL
+                    </span>
+
+                    <h3>
+                        Light Sensor
+                    </h3>
+
+                    <p>
+                        Not installed in the
+                        current prototype.
+                    </p>
+
+                </div>
+
+                <b class="component-chip">
+                    N/A
+                </b>
+
+            </article>
+
+
+        </section>
+
+
+        <!-- PIN MAP -->
+        <section class="section-heading">
+
+            <div>
+
+                <span>
+                    PIN MAP
+                </span>
+
+                <h2>
+                    Current connections
+                </h2>
+
+            </div>
+
+        </section>
+
+
+        <section class="pin-table panel">
+
+
+            <div class="pin-row pin-head">
+
+                <span>
+                    DEVICE
+                </span>
+
+                <span>
+                    SIGNAL
+                </span>
+
+                <span>
+                    PICO W
+                </span>
+
+                <span>
+                    TYPE
+                </span>
+
+            </div>
+
+
+            <div class="pin-row">
+
+                <span>
+                    BME280
+                </span>
+
+                <span>
+                    SDA
+                </span>
+
+                <strong>
+                    GP4
+                </strong>
+
+                <span>
+                    I²C
+                </span>
+
+            </div>
+
+
+            <div class="pin-row">
+
+                <span>
+                    BME280
+                </span>
+
+                <span>
+                    SCL
+                </span>
+
+                <strong>
+                    GP5
+                </strong>
+
+                <span>
+                    I²C
+                </span>
+
+            </div>
+
+
+            <div class="pin-row">
+
+                <span>
+                    Rain Sensor
+                </span>
+
+                <span>
+                    AO
+                </span>
+
+                <strong>
+                    GP26 / ADC0
+                </strong>
+
+                <span>
+                    Analog
+                </span>
+
+            </div>
+
+
+            <div class="pin-row">
+
+                <span>
+                    BME280
+                </span>
+
+                <span>
+                    Address
+                </span>
+
+                <strong>
+                    0x76
+                </strong>
+
+                <span>
+                    I²C
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+        <div class="safety-note">
+
+            <strong>
+                ⚠ 3.3 V LOGIC
+            </strong>
+
+            <span>
+                Do not connect 5 V directly
+                to Pico W GPIO pins.
+            </span>
+
+        </div>
+
+
+        <footer class="footer">
+
+            <span>
+                HARDWARE / CURRENT PROTOTYPE
+            </span>
+
+            <span>
+                BME280 + RAIN SENSOR + PICO W
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
