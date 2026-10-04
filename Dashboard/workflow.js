@@ -1,103 +1,205 @@
-/* ============================================================
-   WEATHER//MONITOR
-   WORKFLOW PAGE ENGINE
-   ============================================================ */
-
 document.addEventListener(
     "DOMContentLoaded",
     () => {
 
-        const cards =
-            document.querySelectorAll(
-                ".flow-card"
+        const menuBtn =
+            document.getElementById(
+                "menuBtn"
             );
 
-        /*
-         * Staggered entrance animation
-         */
+        const sidebar =
+            document.getElementById(
+                "sidebar"
+            );
 
-        cards.forEach(
-            (card, index) => {
+        const overlay =
+            document.getElementById(
+                "mobileOverlay"
+            );
 
-                card.style.opacity = "0";
 
-                card.style.transform =
-                    "translateY(20px)";
+        /* ====================================================
+           MOBILE MENU
+        ==================================================== */
 
-                setTimeout(
-                    () => {
+        function closeMenu() {
 
-                        card.style.transition =
-                            "opacity .6s ease, transform .6s ease";
+            sidebar?.classList.remove(
+                "open"
+            );
 
-                        card.style.opacity = "1";
+            overlay?.classList.remove(
+                "open"
+            );
 
-                        card.style.transform =
-                            "translateY(0)";
+            if (menuBtn) {
+                menuBtn.innerHTML = "☰";
+            }
+        }
 
-                    },
-                    150 + index * 120
+
+        menuBtn?.addEventListener(
+            "click",
+            () => {
+
+                const opened =
+                    sidebar?.classList.toggle(
+                        "open"
+                    );
+
+                overlay?.classList.toggle(
+                    "open"
                 );
+
+                if (menuBtn) {
+
+                    menuBtn.innerHTML =
+                        opened
+                            ? "×"
+                            : "☰";
+                }
 
             }
         );
 
 
-        /*
-         * Simple live-flow indicator
-         */
+        overlay?.addEventListener(
+            "click",
+            closeMenu
+        );
 
-        const dataPath =
-            document.querySelector(
-                ".data-path"
+
+        document
+            .querySelectorAll(
+                ".nav-item"
+            )
+            .forEach(
+                item => {
+
+                    item.addEventListener(
+                        "click",
+                        closeMenu
+                    );
+
+                }
             );
 
-        if (dataPath) {
 
-            setInterval(
-                () => {
+        /* ====================================================
+           WORKFLOW CARD ANIMATION
+        ==================================================== */
 
-                    dataPath.classList.toggle(
-                        "pulse"
+        const cards =
+            document.querySelectorAll(
+                ".workflow-card"
+            );
+
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(
+                        entry => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+
+                            }
+
+                        }
                     );
 
                 },
-                1800
+                {
+                    threshold:
+                        0.12
+                }
             );
 
-        }
-
-
-        /*
-         * Card interaction
-         */
 
         cards.forEach(
             card => {
 
-                card.addEventListener(
-                    "click",
-                    () => {
+                card.style.opacity = "0";
 
-                        cards.forEach(
-                            item => {
+                card.style.transform =
+                    "translateY(15px)";
 
-                                item.classList.remove(
-                                    "selected"
-                                );
+                card.style.transition =
+                    "opacity .5s ease, transform .5s ease";
 
-                            }
-                        );
-
-                        card.classList.add(
-                            "selected"
-                        );
-
-                    }
+                observer.observe(
+                    card
                 );
 
             }
         );
+
+
+        /* ====================================================
+           MAKE CARDS VISIBLE
+        ==================================================== */
+
+        const style =
+            document.createElement(
+                "style"
+            );
+
+
+        style.textContent = `
+
+            .workflow-card.visible {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+            }
+
+        `;
+
+
+        document.head.appendChild(
+            style
+        );
+
+
+        /* ====================================================
+           QUICK FLOW CLICK
+        ==================================================== */
+
+        document
+            .querySelectorAll(
+                ".quick-step"
+            )
+            .forEach(
+                step => {
+
+                    step.addEventListener(
+                        "click",
+                        () => {
+
+                            step.style.transform =
+                                "scale(.97)";
+
+                            setTimeout(
+                                () => {
+
+                                    step.style.transform =
+                                        "";
+
+                                },
+                                120
+                            );
+
+                        }
+                    );
+
+                }
+            );
 
     }
 );

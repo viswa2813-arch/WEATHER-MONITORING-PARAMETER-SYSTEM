@@ -2,27 +2,22 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030914">
 
     <title>
-        Weather Monitoring | Analytics
+        Weather Monitor | Analytics
     </title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
-
 
 <body data-page="analytics">
 
-    <div class="ambient ambient-a"></div>
-    <div class="ambient ambient-b"></div>
-
+    <!-- ======================================================
+         TOP BAR
+    ======================================================= -->
 
     <header class="topbar">
 
@@ -32,7 +27,7 @@
                 ⌁
             </span>
 
-            <span>
+            <span class="brand-copy">
 
                 <strong>
                     WEATHER//MONITOR
@@ -49,21 +44,19 @@
 
         <div class="top-actions">
 
-            <span class="connection-pill" id="connectionPill">
+            <div class="connection-pill">
 
                 <i></i>
 
-                <span id="connectionText">
-                    LIVE ANALYTICS
+                <span>
+                    LIVE SYSTEM
                 </span>
 
-            </span>
+            </div>
 
 
             <button class="menu-btn" id="menuBtn">
-
                 ☰
-
             </button>
 
         </div>
@@ -71,9 +64,17 @@
     </header>
 
 
+    <!-- ======================================================
+         MOBILE OVERLAY
+    ======================================================= -->
+
     <div class="mobile-overlay" id="mobileOverlay">
     </div>
 
+
+    <!-- ======================================================
+         SIDEBAR
+    ======================================================= -->
 
     <aside class="sidebar" id="sidebar">
 
@@ -87,7 +88,18 @@
             <a class="nav-item" href="index.html">
 
                 <span>⌂</span>
-                Dashboard
+
+                <div>
+
+                    <strong>
+                        Dashboard
+                    </strong>
+
+                    <small>
+                        Live weather data
+                    </small>
+
+                </div>
 
             </a>
 
@@ -95,7 +107,18 @@
             <a class="nav-item" href="workflow.html">
 
                 <span>◈</span>
-                Workflow
+
+                <div>
+
+                    <strong>
+                        Workflow
+                    </strong>
+
+                    <small>
+                        How the system works
+                    </small>
+
+                </div>
 
             </a>
 
@@ -103,7 +126,18 @@
             <a class="nav-item" href="hardware.html">
 
                 <span>⌬</span>
-                Hardware
+
+                <div>
+
+                    <strong>
+                        Hardware
+                    </strong>
+
+                    <small>
+                        Components & connections
+                    </small>
+
+                </div>
 
             </a>
 
@@ -111,7 +145,18 @@
             <a class="nav-item active" href="analytics.html">
 
                 <span>◒</span>
-                Analytics
+
+                <div>
+
+                    <strong>
+                        Analytics
+                    </strong>
+
+                    <small>
+                        Trends & statistics
+                    </small>
+
+                </div>
 
             </a>
 
@@ -125,11 +170,11 @@
             <div>
 
                 <b>
-                    STREAMING
+                    SYSTEM ONLINE
                 </b>
 
                 <small>
-                    Browser telemetry buffer
+                    Real-time telemetry
                 </small>
 
             </div>
@@ -139,331 +184,484 @@
     </aside>
 
 
+    <!-- ======================================================
+         MAIN PAGE
+    ======================================================= -->
+
     <main class="page">
 
 
-        <section class="page-title">
+        <!-- ==================================================
+             HERO
+        =================================================== -->
 
-            <div class="eyebrow">
+        <section class="hero">
 
-                <span></span>
+            <div class="hero-content">
 
-                LIVE TELEMETRY ANALYTICS
+                <div class="eyebrow">
 
-            </div>
+                    <span></span>
 
+                    LIVE ANALYTICS
 
-            <h1>
-
-                Read the<br>
-                <em>signal.</em>
-
-            </h1>
+                </div>
 
 
-            <p>
+                <h1>
 
-                Live browser-session graphs built
-                directly from the Weather API.
+                    Understand your
 
-            </p>
+                    <br>
 
-        </section>
+                    <em>
+                        environment.
+                    </em>
 
-
-        <!-- STATS -->
-        <section class="analytics-stats">
-
-
-            <div class="stat-panel">
-
-                <span>
-                    TEMPERATURE
-                </span>
-
-                <strong id="aTemp">
-                    -- °C
-                </strong>
-
-                <small>
-                    Current reading
-                </small>
-
-            </div>
+                </h1>
 
 
-            <div class="stat-panel">
+                <p>
 
-                <span>
-                    HUMIDITY
-                </span>
+                    Watch recent sensor readings and
+                    understand how your environmental
+                    parameters are changing over time.
 
-                <strong id="aHumidity">
-                    -- %
-                </strong>
-
-                <small>
-                    Current reading
-                </small>
-
-            </div>
-
-
-            <div class="stat-panel">
-
-                <span>
-                    PRESSURE
-                </span>
-
-                <strong id="aPressure">
-                    -- hPa
-                </strong>
-
-                <small>
-                    Current reading
-                </small>
-
-            </div>
-
-
-            <div class="stat-panel">
-
-                <span>
-                    RAIN LEVEL
-                </span>
-
-                <strong id="aRain">
-                    -- %
-                </strong>
-
-                <small>
-                    Relative sensor value
-                </small>
+                </p>
 
             </div>
 
         </section>
 
 
-        <!-- CHARTS -->
-        <section class="charts-grid">
-
-
-            <article class="chart-panel">
-
-                <div class="chart-head">
-
-                    <div>
-
-                        <span>
-                            01 / TEMPERATURE
-                        </span>
-
-                        <h3>
-                            Thermal signal
-                        </h3>
-
-                    </div>
-
-                    <b>
-                        °C
-                    </b>
-
-                </div>
-
-
-                <div class="bar-chart" id="temperatureChart">
-                </div>
-
-
-                <div class="chart-axis">
-
-                    <span>
-                        OLDER
-                    </span>
-
-                    <span>
-                        RECENT
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <article class="chart-panel">
-
-                <div class="chart-head">
-
-                    <div>
-
-                        <span>
-                            02 / HUMIDITY
-                        </span>
-
-                        <h3>
-                            Moisture signal
-                        </h3>
-
-                    </div>
-
-                    <b>
-                        %
-                    </b>
-
-                </div>
-
-
-                <div class="bar-chart" id="humidityChart">
-                </div>
-
-
-                <div class="chart-axis">
-
-                    <span>
-                        OLDER
-                    </span>
-
-                    <span>
-                        RECENT
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <article class="chart-panel">
-
-                <div class="chart-head">
-
-                    <div>
-
-                        <span>
-                            03 / PRESSURE
-                        </span>
-
-                        <h3>
-                            Atmospheric signal
-                        </h3>
-
-                    </div>
-
-                    <b>
-                        hPa
-                    </b>
-
-                </div>
-
-
-                <div class="bar-chart" id="pressureChart">
-                </div>
-
-
-                <div class="chart-axis">
-
-                    <span>
-                        OLDER
-                    </span>
-
-                    <span>
-                        RECENT
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <article class="chart-panel">
-
-                <div class="chart-head">
-
-                    <div>
-
-                        <span>
-                            04 / RAIN
-                        </span>
-
-                        <h3>
-                            Rain sensor signal
-                        </h3>
-
-                    </div>
-
-                    <b>
-                        %
-                    </b>
-
-                </div>
-
-
-                <div class="bar-chart" id="rainChart">
-                </div>
-
-
-                <div class="chart-axis">
-
-                    <span>
-                        OLDER
-                    </span>
-
-                    <span>
-                        RECENT
-                    </span>
-
-                </div>
-
-            </article>
-
-        </section>
-
-
-        <!-- ANALYTICS NOTE -->
-        <section class="panel analytics-note">
+        <!-- ==================================================
+             SECTION HEADING
+        =================================================== -->
+
+        <section class="section-heading">
 
             <div>
 
-                <span class="panel-kicker">
-                    ANALYTICS NOTE
+                <span>
+                    CURRENT READINGS
                 </span>
 
-                <h3>
-                    How the graph works
-                </h3>
+                <h2>
+                    Live snapshot
+                </h2>
 
             </div>
 
+        </section>
 
-            <p>
 
-                The dashboard keeps the latest
-                12 readings in browser memory.
-                The values update whenever the API
-                returns a new packet. Reloading the
-                page resets this temporary chart history.
+        <!-- ==================================================
+             LIVE METRICS
+        =================================================== -->
 
-            </p>
+        <section class="metrics-grid">
+
+
+            <!-- TEMPERATURE -->
+
+            <article class="metric-card">
+
+                <div class="metric-head">
+
+                    <span class="metric-icon">
+                        °
+                    </span>
+
+                    <div>
+
+                        <span>
+                            TEMPERATURE
+                        </span>
+
+                        <small>
+                            CURRENT
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="metric-value">
+
+                    <strong id="analyticsTemperature">
+                        --
+                    </strong>
+
+                    <span>
+                        °C
+                    </span>
+
+                </div>
+
+
+                <div class="metric-description">
+
+                    <p>
+                        Current ambient temperature.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- HUMIDITY -->
+
+            <article class="metric-card">
+
+                <div class="metric-head">
+
+                    <span class="metric-icon">
+                        ≈
+                    </span>
+
+                    <div>
+
+                        <span>
+                            HUMIDITY
+                        </span>
+
+                        <small>
+                            CURRENT
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="metric-value">
+
+                    <strong id="analyticsHumidity">
+                        --
+                    </strong>
+
+                    <span>
+                        %
+                    </span>
+
+                </div>
+
+
+                <div class="metric-description">
+
+                    <p>
+                        Current relative humidity.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRESSURE -->
+
+            <article class="metric-card">
+
+                <div class="metric-head">
+
+                    <span class="metric-icon">
+                        ◉
+                    </span>
+
+                    <div>
+
+                        <span>
+                            PRESSURE
+                        </span>
+
+                        <small>
+                            CURRENT
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="metric-value">
+
+                    <strong id="analyticsPressure">
+                        --
+                    </strong>
+
+                    <span>
+                        hPa
+                    </span>
+
+                </div>
+
+
+                <div class="metric-description">
+
+                    <p>
+                        Current atmospheric pressure.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- RAIN -->
+
+            <article class="metric-card">
+
+                <div class="metric-head">
+
+                    <span class="metric-icon">
+                        ⌁
+                    </span>
+
+                    <div>
+
+                        <span>
+                            RAIN LEVEL
+                        </span>
+
+                        <small>
+                            CURRENT
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="metric-value">
+
+                    <strong id="analyticsRain">
+                        --
+                    </strong>
+
+                    <span>
+                        %
+                    </span>
+
+                </div>
+
+
+                <div class="metric-description">
+
+                    <p>
+                        Current relative rain-sensor level.
+                    </p>
+
+                </div>
+
+            </article>
 
         </section>
 
+
+        <!-- ==================================================
+             LOWER SECTION
+        =================================================== -->
+
+        <section class="lower-grid">
+
+
+            <!-- TEMPERATURE CHART -->
+
+            <article class="panel">
+
+                <div class="panel-top">
+
+                    <div>
+
+                        <span class="panel-kicker">
+                            TEMPERATURE
+                        </span>
+
+                        <h3>
+                            Recent temperature trend
+                        </h3>
+
+                    </div>
+
+
+                    <span id="analyticsCurrent">
+                        -- °C
+                    </span>
+
+                </div>
+
+
+                <div class="spark-chart" id="analyticsChart">
+                </div>
+
+
+                <div class="chart-foot">
+
+                    <span>
+                        Browser-session readings
+                    </span>
+
+                    <span>
+                        Live
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <!-- INTERPRETATION -->
+
+            <article class="panel">
+
+                <div class="panel-top">
+
+                    <div>
+
+                        <span class="panel-kicker">
+                            INTERPRETATION
+                        </span>
+
+                        <h3>
+                            What does it mean?
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="health-grid">
+
+
+                    <!-- TEMPERATURE MEANING -->
+
+                    <div>
+
+                        <span>
+                            TEMPERATURE
+                        </span>
+
+                        <strong id="temperatureMeaning">
+                            Waiting for data
+                        </strong>
+
+                    </div>
+
+
+                    <!-- HUMIDITY MEANING -->
+
+                    <div>
+
+                        <span>
+                            HUMIDITY
+                        </span>
+
+                        <strong id="humidityMeaning">
+                            Waiting for data
+                        </strong>
+
+                    </div>
+
+
+                    <!-- PRESSURE MEANING -->
+
+                    <div>
+
+                        <span>
+                            PRESSURE
+                        </span>
+
+                        <strong id="pressureMeaning">
+                            Waiting for data
+                        </strong>
+
+                    </div>
+
+
+                    <!-- RAIN MEANING -->
+
+                    <div>
+
+                        <span>
+                            RAIN
+                        </span>
+
+                        <strong id="rainMeaning">
+                            Waiting for data
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ==================================================
+             IMPORTANT NOTE
+        =================================================== -->
+
+        <section class="simple-explanation">
+
+            <div class="simple-icon">
+                i
+            </div>
+
+
+            <div>
+
+                <span>
+                    IMPORTANT
+                </span>
+
+                <h3>
+                    Rain level is a relative sensor value.
+                </h3>
+
+                <p>
+
+                    The rain percentage shown here is derived
+                    from the analog rain sensor reading. It is
+                    not a calibrated rainfall measurement in
+                    millimetres.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             FOOTER
+        =================================================== -->
 
         <footer class="footer">
 
             <span>
-                ANALYTICS / LIVE SESSION BUFFER
+                WEATHER PARAMETER MONITORING SYSTEM
             </span>
 
             <span>
-                API: /api/weather
+                LIVE ENVIRONMENTAL ANALYTICS
             </span>
 
         </footer>
 
+
     </main>
 
 
-    <script src="script.js"></script>
+    <!-- ======================================================
+         ANALYTICS JAVASCRIPT
+    ======================================================= -->
+
+    <script src="analytics.js"></script>
 
 </body>
 
